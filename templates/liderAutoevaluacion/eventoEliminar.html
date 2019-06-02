@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %} <!--token de seguridad de django -->
+    <h3>¿Desea eliminar el registro de {{ object.nombreEvento }}?</h3>
+    <button type="submit" class="btn btn-danger text-center">Confirmar</button>
+    <a class="btn btn-primary" href="{% url 'liderAutoevaluacion:evento_listar'%}">Cancelar</a>
+</form>
+{% endblock %}

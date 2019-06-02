@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">Identificacion</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Lugar</th>
+            <th scope="col">Lider de Autoevaluación</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if object_list %}
+        {% for prog in object_list %}
+        <tr>
+            <td>{{ prog.identificacion }}</td>
+            <td>{{ prog.nombreEvento }}</td>
+            <td>{{ prog.fecha }}</td>
+            <td>{{ prog.lugar }}</td>
+            <td>{{ prog.liderAutoevaluacion }}</td>
+            <td>
+                <a class="btn btn-outline-success" href="{% url 'liderAutoevaluacion:evento_editar'  prog.identificacion %}">Editar</a>
+                <a class="btn btn-outline-secondary" href="{% url 'egresados:inscripcion_evento' %}">Inscripción</a>
+                <a class="btn btn-outline-warning" href="{% url 'liderAutoevaluacion:evento_eliminar'  prog.identificacion %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1>No hay eventos registrados</h1>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

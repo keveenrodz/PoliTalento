@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %} <!--token de seguridad de django -->
+    {{ form.as_p}} <!--en una variable metemos el form que recibimos del contexto (views)... as.p pinta el formulario como parrafo(etiquetas <p>)-->
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+{% endblock %}

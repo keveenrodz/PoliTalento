@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block estrastatic %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>{% block title %} Document {% endblock %}</title>
+
+</head>
+<body>
+    {% block header %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#"></a>
+        <a href="/" class="logo">
+        <img src="https://www.politecnicojic.edu.co/images/logo/logo.png" alt="Politécnico Colombiano Jaime Isaza Cadavid" class="img-responsive logo">
+        </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+            <style>
+        #div1 {background-color: white; margin: 5px; width: 50px; height: 30px;}
+    </style>
+<div id="div1"></div>
+    {% endblock %}
+
+    {% block content %}
+    <h5>Este es el contenido del archivo base</h5>
+    {% endblock %}
+
+    {% block footer %}
+    <h5></h5>
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="{% static 'css/jquery.min.css' %}"></script>
+    {% block extrajs %}
+    {% endblock%}
+</body>
+</html>

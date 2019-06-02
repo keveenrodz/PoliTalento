@@ -8,6 +8,8 @@ class Administrador(models.Model):
     telefono = models.IntegerField()
     contrasena = models.CharField(max_length=20)
     
+    def __str__(self):
+        return '{}'.format(self.nombre)
 
 class Programa(models.Model):
     codigoRegCalificado = models.CharField(primary_key=True, max_length=40)
@@ -15,5 +17,8 @@ class Programa(models.Model):
     duracion = models.IntegerField()
     perfil = models.CharField(max_length=30)
     estadoActual = models.SmallIntegerField()
+    
+    def __str__(self):
+        return '{}'.format(self.nombrePrograma)
     
 

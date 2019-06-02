@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">Registro Calificado</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Duración</th>
+            <th scope="col">Perfil</th>
+            <th scope="col">Estado Actual</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if object_list %}
+        {% for prog in object_list %}
+        <tr>
+            <td>{{ prog.codigoRegCalificado }}</td>
+            <td>{{ prog.nombrePrograma }}</td>
+            <td>{{ prog.duracion }}</td>
+            <td>{{ prog.perfil }}</td>
+            <td>{{ prog.estadoActual }}</td>
+            <td>
+                <a class="btn btn-outline-success" href="{% url 'administrador:programa_editar'  prog.codigoRegCalificado %}">Editar</a>
+                <a class="btn btn-outline-warning" href="{% url 'administrador:programa_eliminar'  prog.codigoRegCalificado %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1>No hay programas registrados</h1>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

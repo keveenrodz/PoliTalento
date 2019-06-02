@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %} <!--token de seguridad de django -->
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+{% endblock %}

@@ -14,6 +14,4 @@ class Egresado(models.Model):
     programa = models.ManyToManyField(Programa)
     evento = models.ManyToManyField(Evento)
     administrador = models.ForeignKey(Administrador, null = True, blank = True, on_delete = models.CASCADE)
-
-
-
+    

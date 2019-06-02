@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">Identificación</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Contraseña</th>
+            <th scope="col">Programa</th>
+            <th scope="col">Administrador</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if object_list %}
+        {% for egresado in object_list %}
+        <tr>
+            <td>{{ egresado.identificacion }}</td>
+            <td>{{ egresado.nombre }}</td>
+            <td>{{ egresado.email }}</td>
+            <td>{{ egresado.telefono }}</td>
+            <td>{{ egresado.contrasena }}</td>
+            <td>{{ egresado.programa }}</td>
+            <td>{{ egresado.administrador }}</td>
+            <td>
+                <a class="btn btn-outline-success" href="{% url 'administrador:egresado_editar'  egresado.identificacion %}">Editar</a>
+                <a class="btn btn-outline-warning" href="{% url 'administrador:egresado_eliminar'  egresado.identificacion %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1>No hay egresados registrados</h1>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}
